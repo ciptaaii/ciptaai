@@ -1,9 +1,18 @@
 import streamlit as st
-import tensorflow as tf
 import numpy as np
 from PIL import Image
+import os
+import requests
+import tensorflow as tf
 
+MODEL_PATH = "model_daun.keras"
+MODEL_URL = "https://drive.google.com/file/d/1J0Kstvfh3dg1lo41xyFmsvZyo2YIldMW/view?usp=drive_link"
 
+# Download the model if not exists
+if not os.path.exists(MODEL_PATH):
+    r = requests.get(MODEL_URL)
+    with open(MODEL_PATH, "wb") as f:
+        f.write(r.content)
 st.set_page_config(
     page_title="Deteksi Penyakit Tanaman",
     page_icon="🌿",
