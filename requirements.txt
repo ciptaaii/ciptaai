@@ -1,5 +1,6 @@
 streamlit
-tensorflow
+keras==3.0.0 
+tensorflow==2.15
 numpy
 pillow
 gdown
