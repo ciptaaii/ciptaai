@@ -8,6 +8,9 @@ from tensorflow.keras.models import load_model
 MODEL_PATH = "model_daun.keras"
 MODEL_URL = "https://drive.google.com/uc?id=1J0Kstvfh3dg1lo41xyFmsvZyo2YIldMW"
 
+print("Files:", os.listdir("."))
+print("Model path:", MODEL_PATH)
+
 model = load_model(MODEL_PATH)
 
 st.set_page_config(
