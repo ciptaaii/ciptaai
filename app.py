@@ -10,6 +10,7 @@ MODEL_URL = "https://drive.google.com/uc?id=1J0Kstvfh3dg1lo41xyFmsvZyo2YIldMW"
 
 
 model = load_model(MODEL_PATH)
+model.save("model.h5")
 
 st.set_page_config(
     page_title="Deteksi Penyakit Tanaman",
