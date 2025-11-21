@@ -5,14 +5,16 @@ import os
 import gdown 
 import tensorflow as tf
 
-MODEL_PATH = "model_daun.keras"
-MODEL_URL = "https://drive.google.com/uc?id=1J0Kstvfh3dg1lo41xyFmsvZyo2YIldMW"
+with st.spinner("Checking model..."):
+    if not os.path.exists(MODEL_PATH):
+        st.info("Downloading model from Google Drive...")
+        gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
+        st.success("✅ AI Sukses Disiapkan!")
+    else:
+        st.success("✅ AI Sudah Pernah Digunakan")
 
-if not os.path.exists(MODEL_PATH):
-    gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
 
-
-model = tf.keras.models.load_model(MODEL_PATH)
+#model = tf.keras.models.load_model(MODEL_PATH)
 
 st.set_page_config(
     page_title="Deteksi Penyakit Tanaman",
