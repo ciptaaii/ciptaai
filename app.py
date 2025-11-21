@@ -1,18 +1,20 @@
 import streamlit as st
 import numpy as np
 from PIL import Image
+import tensorflow as tf
 import os
-import requests
+import gdown 
 import tensorflow as tf
 
 MODEL_PATH = "model_daun.keras"
-MODEL_URL = "https://drive.google.com/file/d/1J0Kstvfh3dg1lo41xyFmsvZyo2YIldMW/view?usp=drive_link"
+MODEL_URL = "https://drive.google.com/uc?id=1J0Kstvfh3dg1lo41xyFmsvZyo2YIldMW"
 
-# Download the model if not exists
 if not os.path.exists(MODEL_PATH):
-    r = requests.get(MODEL_URL)
-    with open(MODEL_PATH, "wb") as f:
-        f.write(r.content)
+    gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
+
+
+model = tf.keras.models.load_model(MODEL_PATH)
+
 st.set_page_config(
     page_title="Deteksi Penyakit Tanaman",
     page_icon="🌿",
@@ -41,9 +43,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-
-MODEL_PATH = "model_daun.keras"
-model = tf.keras.models.load_model(MODEL_PATH)
 
 class_names = ["Healthy", "Rusty", "Powdery"]
 colors = {"Healthy": "green", "Rusty": "orange", "Powdery": "purple"}
