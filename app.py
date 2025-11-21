@@ -12,7 +12,7 @@ if not os.path.exists(MODEL_PATH):
     gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
 
 
-#model = tf.keras.models.load_model(MODEL_PATH)
+model = tf.keras.models.load_model(MODEL_PATH)
 
 st.set_page_config(
     page_title="Deteksi Penyakit Tanaman",
