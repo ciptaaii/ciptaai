@@ -5,6 +5,9 @@ import os
 import gdown 
 import tensorflow as tf
 
+MODEL_PATH = "model_daun.keras"
+MODEL_URL = "https://drive.google.com/uc?id=1J0Kstvfh3dg1lo41xyFmsvZyo2YIldMW"
+
 with st.spinner("Checking model..."):
     if not os.path.exists(MODEL_PATH):
         st.info("Downloading model from Google Drive...")
